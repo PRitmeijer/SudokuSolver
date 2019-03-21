@@ -105,15 +105,23 @@ void display(int grid[SIZE][SIZE])
 			for (int col = 0; col < SIZE; col++)
 			{
 				printf("%i ", grid[row][col]);
+			    if(col == 2 || col == 5)
+			    {
+			        printf("|");
+			    }
 			}
 		printf("\n");
+        if(row == 2 || row == 5)
+            {
+                printf("--------------------\n");
+            }
     }
 
 }
 
 int main (void)
 {
-    printf("sudoku to solve: \n");
+    printf("sudoku to solve: \n\n");
 
     int grid[SIZE][SIZE] =
     {
@@ -128,11 +136,11 @@ int main (void)
 		{0,0,1,9,0,4,5,7,0}
     };
     display(grid);
-    printf("\n");
+    printf("\n\n");
 
     if(solve(grid))
     {
-        printf("sudoku solved: \n");
+        printf("sudoku solved: \n\n");
         display(grid);
     }
     else
